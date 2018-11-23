@@ -8,10 +8,10 @@
 
 <script>
     export default {
-        name: 'app',
+        props: ['title'],
         data() {
             return {
-                title: 'Graph - Cube'
+                //
             }
         },
         mounted() {

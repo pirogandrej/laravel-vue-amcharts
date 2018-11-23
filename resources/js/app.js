@@ -17,30 +17,34 @@ const routes = [
     {
         name: 'line',
         path: '/line',
-        component: LineComponent
+        component: LineComponent,
+        props: true
     },
     {
         name: 'map',
         path: '/map',
-        component: MapComponent
+        component: MapComponent,
+        props: true
     },
     {
         name: 'cube',
         path: '/cube',
-        component: CubeComponent
+        component: CubeComponent,
+        props: true
     },
     {
         name: 'pie',
         path: '/pie',
-        component: PieComponent
+        component: PieComponent,
+        props: true
     }
 ];
 
 const router = new VueRouter({
-    routes:routes
+    routes
 });
 
 const app = new Vue({
-    router:router
+    router
 }).$mount('#app');
 

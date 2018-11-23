@@ -1,19 +1,10 @@
 <template>
     <div>
-        <ul>
-            <li>
-                <router-link to="/line"> {{ titleLine }} </router-link>
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <li v-for="(item, index) in dataGraph">
+                <router-link :to="{ name:item.path, params:{ title:item.title } }" class="nav-link" active-class="active"> {{ item.title }} </router-link>
             </li>
-            <li>
-                <router-link to="/map"> {{ titleMap }} </router-link>
-            </li>
-            <li>
-                <router-link to="/cube"> {{ titleCube }} </router-link>
-            </li>
-            <li>
-                <router-link to="/pie"> {{ titlePie }} </router-link>
-            </li>
-        </ul>
+        </div>
     </div>
 </template>
 
@@ -21,10 +12,25 @@
     export default {
         data(){
             return {
-                titleLine:'Graph - Line',
-                titleMap:'Graph - Map',
-                titleCube:'Graph - Cube',
-                titlePie:'Graph - Pie'
+                dataGraph:
+                [
+                    {
+                        title:'Graph - Line',
+                        path:'line'
+                    },
+                    {
+                        title:'Graph - Map',
+                        path:'map'
+                    },
+                    {
+                        title:'Graph - Cube',
+                        path:'cube'
+                    },
+                    {
+                        title:'Graph - Pie',
+                        path:'pie'
+                    }
+                ]
             }
         }
     }

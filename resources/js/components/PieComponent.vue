@@ -9,10 +9,10 @@
 <script>
     import AmPie from 'amcharts3/amcharts/pie';
     export default {
-        name: 'app',
+        props: ['title'],
         data() {
             return {
-                title: 'Graph - Pie'
+                //
             }
         },
         mounted() {

@@ -12,10 +12,10 @@
     import UkraineLow from '../../plugins/amcharts/ukraineLow.js';
 
     export default {
-        name: 'app',
+        props: ['title'],
         data() {
             return {
-                title: 'Graph - Map'
+                //
             }
         },
         mounted() {

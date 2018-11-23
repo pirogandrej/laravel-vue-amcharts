@@ -2432,10 +2432,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'app',
+    props: ['title'],
     data: function data() {
         return {
-            title: 'Graph - Cube'
+            //
         };
     },
     mounted: function mounted() {
@@ -2574,10 +2574,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'app',
+    props: ['title'],
     data: function data() {
         return {
-            title: 'Graph - line'
+            //
         };
     },
     mounted: function mounted() {
@@ -3258,10 +3258,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'app',
+    props: ['title'],
     data: function data() {
         return {
-            title: 'Graph - Map'
+            //
         };
     },
     mounted: function mounted() {
@@ -3331,23 +3331,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            titleLine: 'Graph - Line',
-            titleMap: 'Graph - Map',
-            titleCube: 'Graph - Cube',
-            titlePie: 'Graph - Pie'
+            dataGraph: [{
+                title: 'Graph - Line',
+                path: 'line'
+            }, {
+                title: 'Graph - Map',
+                path: 'map'
+            }, {
+                title: 'Graph - Cube',
+                path: 'cube'
+            }, {
+                title: 'Graph - Pie',
+                path: 'pie'
+            }]
         };
     }
 });
@@ -3372,10 +3372,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'app',
+    props: ['title'],
     data: function data() {
         return {
-            title: 'Graph - Pie'
+            //
         };
     },
     mounted: function mounted() {
@@ -38757,47 +38757,36 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("ul", [
-      _c(
-        "li",
-        [
-          _c("router-link", { attrs: { to: "/line" } }, [
-            _vm._v(" " + _vm._s(_vm.titleLine) + " ")
-          ])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "li",
-        [
-          _c("router-link", { attrs: { to: "/map" } }, [
-            _vm._v(" " + _vm._s(_vm.titleMap) + " ")
-          ])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "li",
-        [
-          _c("router-link", { attrs: { to: "/cube" } }, [
-            _vm._v(" " + _vm._s(_vm.titleCube) + " ")
-          ])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "li",
-        [
-          _c("router-link", { attrs: { to: "/pie" } }, [
-            _vm._v(" " + _vm._s(_vm.titlePie) + " ")
-          ])
-        ],
-        1
-      )
-    ])
+    _c(
+      "div",
+      {
+        staticClass: "nav flex-column nav-pills",
+        attrs: {
+          id: "v-pills-tab",
+          role: "tablist",
+          "aria-orientation": "vertical"
+        }
+      },
+      _vm._l(_vm.dataGraph, function(item, index) {
+        return _c(
+          "li",
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "nav-link",
+                attrs: {
+                  to: { name: item.path, params: { title: item.title } },
+                  "active-class": "active"
+                }
+              },
+              [_vm._v(" " + _vm._s(item.title) + " ")]
+            )
+          ],
+          1
+        )
+      })
+    )
   ])
 }
 var staticRenderFns = []
@@ -52884,19 +52873,23 @@ var PieComponent = __webpack_require__("./resources/js/components/PieComponent.v
 var routes = [{
     name: 'line',
     path: '/line',
-    component: LineComponent
+    component: LineComponent,
+    props: true
 }, {
     name: 'map',
     path: '/map',
-    component: MapComponent
+    component: MapComponent,
+    props: true
 }, {
     name: 'cube',
     path: '/cube',
-    component: CubeComponent
+    component: CubeComponent,
+    props: true
 }, {
     name: 'pie',
     path: '/pie',
-    component: PieComponent
+    component: PieComponent,
+    props: true
 }];
 
 var router = new VueRouter({

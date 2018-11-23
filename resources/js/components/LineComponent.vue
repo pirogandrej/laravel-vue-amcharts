@@ -13,10 +13,10 @@
     import AmExport from 'amcharts3/amcharts/plugins/export/export.min';
 
     export default {
-        name: 'app',
+        props: ['title'],
         data() {
             return {
-                title: 'Graph - line'
+                //
             }
         },
         mounted() {
