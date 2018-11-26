@@ -7,6 +7,8 @@ Vue.use(VueRouter);
 
 Vue.component('title-component', require('./components/TitleComponent.vue'));
 Vue.component('menu-component', require('./components/MenuComponent.vue'));
+Vue.component('chartrandom-component', require('./components/ChartRandomComponent.vue'));
+
 
 const LineComponent = require('./components/LineComponent.vue');
 const MapComponent = require('./components/MapComponent.vue');
