@@ -5,15 +5,16 @@ window.VueRouter = require('vue-router').default;
 
 Vue.use(VueRouter);
 
-Vue.component('title-component', require('./components/TitleComponent.vue'));
 Vue.component('menu-component', require('./components/MenuComponent.vue'));
-Vue.component('chartrandom-component', require('./components/ChartRandomComponent.vue'));
+// Vue.component('chartrandom-component', require('./components/ChartRandomComponent.vue'));
 
 
 const LineComponent = require('./components/LineComponent.vue');
 const MapComponent = require('./components/MapComponent.vue');
 const CubeComponent = require('./components/CubeComponent.vue');
 const PieComponent = require('./components/PieComponent.vue');
+const LineRandomComponent = require('./components/LineRandomComponent.vue');
+const LineSocketComponent = require('./components/LineSocketComponent.vue');
 
 const routes = [
     {
@@ -38,6 +39,18 @@ const routes = [
         name: 'pie',
         path: '/pie',
         component: PieComponent,
+        props: true
+    },
+    {
+        name: 'linerandom',
+        path: '/linerandom',
+        component: LineRandomComponent,
+        props: true
+    },
+    {
+        name: 'linesocket',
+        path: '/linesocket',
+        component: LineSocketComponent,
         props: true
     }
 ];

@@ -12,6 +12,7 @@
     <!-- Scripts -->
     <script src="{{ mix('js/all.js') }}" defer></script>
     <script src="https://www.amcharts.com/lib/3/ammap.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
 
 

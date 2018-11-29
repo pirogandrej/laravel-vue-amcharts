@@ -1,4 +1,4 @@
-webpackJsonp([4],{
+webpackJsonp([2],{
 
 /***/ "./node_modules/canvg/dist/browser/canvg.min.js":
 /***/ (function(module, exports, __webpack_require__) {

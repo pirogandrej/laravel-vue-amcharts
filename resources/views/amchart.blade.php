@@ -10,8 +10,6 @@
         </div>
         <div class="col-md-10">
 
-            <title-component></title-component>
-
             <router-view></router-view>
 
         </div>

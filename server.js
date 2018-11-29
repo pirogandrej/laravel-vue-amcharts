@@ -50,10 +50,15 @@ io.on('connection', function (socket) {
     socket.emit('server-info', JSON.stringify(dataCustom));
 
     socket.on('message', function (data) {
-        dataCustom = JSON.parse(data);
-        console.log(JSON.parse(data));
-        console.log(dataCustom);
-        socket.broadcast.send(JSON.stringify(dataCustom));
+        if(data == 'getdata'){
+            console.log('init = ', data);
+            socket.emit('server-info', JSON.stringify(dataCustom));
+        }
+        else{
+            dataCustom = JSON.parse(data);
+            console.log('server take = ', dataCustom);
+            socket.broadcast.send(JSON.stringify(dataCustom));
+        }
     });
 
 });

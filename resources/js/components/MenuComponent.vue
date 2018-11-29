@@ -29,6 +29,14 @@
                     {
                         title:'Graph - Pie',
                         path:'pie'
+                    },
+                    {
+                        title:'Graph - Line(Random)',
+                        path:'linerandom'
+                    },
+                    {
+                        title:'Graph - Line(Socket)',
+                        path:'linesocket'
                     }
                 ]
             }
