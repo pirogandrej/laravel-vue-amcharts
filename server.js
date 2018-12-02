@@ -1,4 +1,15 @@
 var io = require('socket.io')(6001);
+// console.log('start');
+// var Redis = require('ioredis');
+// var redis = new Redis();
+//
+// redis.psubscribe('*', function (error, count) {
+//     console.log(error, count);
+// });
+//
+// redis.on('pmessage', function (pattern, channel, message) {
+//     console.log(channel, message);
+// });
 
 var dataCustom = [
     {
