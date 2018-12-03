@@ -6,11 +6,11 @@
         <!--test---------------------------------------------->
         <div class="input-group mb-3">
             <label>A</label>
-            <input type="text" class="ml-3 mr-3" placeholder="" v-model="message">
-            <br><br>
+            <input type="text" class="ml-3 mr-3" placeholder="" v-model="message"/>
+            <br/><br/>
             <label>B</label>
-            <input type="text" class="ml-3 mr-3" placeholder="" v-model="messageB" value="messageB">
-            <br>
+            <input type="text" class="ml-3 mr-3" placeholder="" v-model="messageB" value="messageB"/>
+            <br/>
             <div class="input-group-append">
                 <button @click="sendMessage" class="btn btn-outline-secondary" type="button">Отправить</button>
             </div>
@@ -72,84 +72,90 @@
 
 
 
-                    var chart = AmCharts.makeChart("chartdiv", {
-                        "type": "serial",
-                        "theme": "light",
-                        "titles": [{
-                            "text": "Traffic incidents per year",
-                            "size": 15
-                        }],
-                        "legend": {
-                            "align": "center",
-                            "equalWidths": false,
-                            "periodValueText": "total: [[value.sum]]",
-                            "valueAlign": "left",
-                            "valueText": "[[value]] ([[percents]]%)",
-                            "valueWidth": 100
-                        },
-                        "dataProvider":appchart.dataCustom,
-                        "plotAreaBorderAlpha": 0,
-                        "marginLeft": 0,
-                        "marginBottom": 0,
-                        "chartCursor": {
-                            "cursorAlpha": 0,
-                            "zoomable": false,
-                            "animationDuration": 0
-                        },
-                        "categoryField": "year",
-                        "categoryAxis": {
-                            "startOnAxis": true,
-                            "axisColor": "#DADADA",
-                            "gridAlpha": 0.07
-                        },
-                        "export": {
-                            "enabled": true,
-                            "beforeCapture": function() {
-                                chart.chartCursor.showCursorAt("2005");
-                            }
-                        }
-                    });
+//                    var chart = AmCharts.makeChart("chartdiv", {
+//                        "type": "serial",
+//                        "theme": "light",
+//                        "titles": [{
+//                            "text": "Traffic incidents per year",
+//                            "size": 15
+//                        }],
+//                        "legend": {
+//                            "align": "center",
+//                            "equalWidths": false,
+//                            "periodValueText": "total: [[value.sum]]",
+//                            "valueAlign": "left",
+//                            "valueText": "[[value]] ([[percents]]%)",
+//                            "valueWidth": 100
+//                        },
+//                        "dataProvider":appchart.dataCustom,
+//                        "plotAreaBorderAlpha": 0,
+//                        "marginLeft": 0,
+//                        "marginBottom": 0,
+//                        "chartCursor": {
+//                            "cursorAlpha": 0,
+//                            "zoomable": false,
+//                            "animationDuration": 0
+//                        },
+//                        "categoryField": "year",
+//                        "categoryAxis": {
+//                            "startOnAxis": true,
+//                            "axisColor": "#DADADA",
+//                            "gridAlpha": 0.07
+//                        },
+//                        "export": {
+//                            "enabled": true,
+//                            "beforeCapture": function() {
+//                                chart.chartCursor.showCursorAt("2005");
+//                            }
+//                        }
+//                    });
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-//                    let chart = am4core.create("chartdiv", am4charts.XYChart);
-//                    chart.paddingRight = 20;
+//                series.tooltipText = "Visits: [bold]{valueY}[/]";
+//                series.fillOpacity = 0.3;
 //
-//                    chart.data = appchart.dataCustom;
-//                    chart.dataProvider = appchart.dataCustom;
 //
-//                    let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-//                    categoryAxis.dataFields.category = "object";
-//                    categoryAxis.title.text = "Object";
-//
-//                    let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-//                    valueAxis.title.text = "Litres sold (M)";
-//
-//                    let series = chart.series.push(new am4charts.LineSeries());
-//                    series.name = "Units";
-//                    series.stroke = am4core.color("#7792cd");
-//                    series.strokeWidth = 3;
-//                    series.dataFields.valueY = "value";
-//                    series.dataFields.categoryX = "object";
-//                    series.fillOpacity = 0.3;
-//
-//                    chart.cursor = new am4charts.XYCursor();
-//                    chart.cursor.lineY.opacity = 0;
-//                    chart.scrollbarX = new am4charts.XYChartScrollbar();
-//                    chart.scrollbarX.series.push(series);
+//                chart.events.on("datavalidated", function () {
+//                    categoryAxis.zoom({start:0, end:1});
+//                });
+
+
+
+
+
+
+
+
+
+
+
+                    let chart = am4core.create("chartdiv", am4charts.XYChart);
+                    chart.paddingRight = 20;
+
+                    chart.data = appchart.dataCustom;
+                    chart.dataProvider = appchart.dataCustom;
+
+                    let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+                    categoryAxis.dataFields.category = "object";
+                    categoryAxis.title.text = "Object";
+
+                    let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+                    valueAxis.title.text = "Litres sold (M)";
+
+                    let series = chart.series.push(new am4charts.LineSeries());
+                    series.name = "Units";
+                    series.stroke = am4core.color("#7792cd");
+                    series.strokeWidth = 3;
+                    series.dataFields.valueY = "value";
+                    series.dataFields.categoryX = "object";
+                    series.fillOpacity = 0.3;
+
+                    chart.cursor = new am4charts.XYCursor();
+                    chart.cursor.lineY.opacity = 0;
+                    chart.scrollbarX = new am4charts.XYChartScrollbar();
+                    chart.scrollbarX.series.push(series);
 
                     appchart.chartline = chart;
                 });

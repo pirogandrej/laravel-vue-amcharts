@@ -2,13 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Message;
 use Illuminate\Http\Request;
 
 class AmchartsController extends Controller
 {
     public function index()
     {
-        return view('amchart');
+//        event(new \App\Events\TestEvent());
+        $messages = Message::all();
+        return view('amchart', compact('messages'));
+    }
+
+    public function postMessage(Request $request){
+        Message::create($request->all());
+        return redirect()->back();
+
     }
 
     public function dataRandom(){

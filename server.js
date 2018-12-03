@@ -1,3 +1,89 @@
+console.log('start');
+var Redis = require('ioredis');
+var redis = new Redis();
+
+redis.psubscribe('*', function (error, count) {
+    console.log(error, count);
+});
+
+redis.on('pmessage', function (pattern, channel, message) {
+    console.log(channel, message);
+});
+
+
+//*********************************************************************************************
+
+// var io = require('socket.io')(6001);
+//
+// var dataCustom = [
+//     {
+//         "object": "A",
+//         "value": 1
+//     },
+//     {
+//         "object": "B",
+//         "value": 201
+//     },
+//     {
+//         "object": "C",
+//         "value": 65
+//     },
+//     {
+//         "object": "D",
+//         "value": 39
+//     },
+//     {
+//         "object": "E",
+//         "value": 19
+//     },
+//     {
+//         "object": "F",
+//         "value": 191
+//     },
+//     {
+//         "object": "G",
+//         "value": 16
+//     },
+//     {
+//         "object": "H",
+//         "value": 55
+//     },
+//     {
+//         "object": "I",
+//         "value": 44
+//     },
+//     {
+//         "object": "K",
+//         "value": 100
+//     }
+// ];
+//
+// io.on('connection', function (socket) {
+//
+//     console.log('New connection!',socket.id);
+//
+//     socket.emit('server-info', JSON.stringify(dataCustom));
+//
+//     socket.on('message', function (data) {
+//         if(data == 'getdata'){
+//             console.log('server init = ', data);
+//             socket.emit('server-info', JSON.stringify(dataCustom));
+//         }
+//         else{
+//             console.log('server send new data json = ', data);
+//             dataCustom = JSON.parse(data);
+//             console.log('server take = ', dataCustom);
+//             socket.broadcast.send(JSON.stringify(dataCustom));
+//         }
+//     });
+//
+// });
+
+//*********************************************************************************
+
+//*******************************************************************************
+
+
 // var express = require('express');
 // var appExpress = express();
 // var server = require('http-server').Server(appExpress);
@@ -18,70 +104,5 @@
 // // const __dirname = "";
 // // appExpress.use(express.static(__dirname + '/public/svg'));
 
-
-var io = require('socket.io')(6001);
-
-var dataCustom = [
-    {
-        "object": "A",
-        "value": 1
-    },
-    {
-        "object": "B",
-        "value": 201
-    },
-    {
-        "object": "C",
-        "value": 65
-    },
-    {
-        "object": "D",
-        "value": 39
-    },
-    {
-        "object": "E",
-        "value": 19
-    },
-    {
-        "object": "F",
-        "value": 191
-    },
-    {
-        "object": "G",
-        "value": 16
-    },
-    {
-        "object": "H",
-        "value": 55
-    },
-    {
-        "object": "I",
-        "value": 44
-    },
-    {
-        "object": "K",
-        "value": 100
-    }
-];
-
-io.on('connection', function (socket) {
-
-    console.log('New connection!',socket.id);
-
-    socket.emit('server-info', JSON.stringify(dataCustom));
-
-    socket.on('message', function (data) {
-        if(data == 'getdata'){
-            console.log('server init = ', data);
-            socket.emit('server-info', JSON.stringify(dataCustom));
-        }
-        else{
-            console.log('server send new data json = ', data);
-            dataCustom = JSON.parse(data);
-            console.log('server take = ', dataCustom);
-            socket.broadcast.send(JSON.stringify(dataCustom));
-        }
-    });
-
-});
+//***************************************************************************************************************
 
