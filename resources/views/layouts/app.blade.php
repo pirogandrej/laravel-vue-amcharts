@@ -11,8 +11,6 @@
 
     <!-- Scripts -->
     <script src="{{ mix('js/all.js') }}" defer></script>
-    {{--<script src="amcharts/amcharts.js"></script>--}}
-    {{--<script src="amcharts/serial.js"></script>--}}
     <script src="https://www.amcharts.com/lib/3/ammap.js"></script>
 
     <!-- Fonts -->
@@ -79,5 +77,6 @@
             @yield('content')
         </main>
     </div>
+    @yield('scripts')
 </body>
 </html>

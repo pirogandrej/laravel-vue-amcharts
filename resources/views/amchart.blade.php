@@ -31,3 +31,14 @@
     </div>
 </div>
 @endsection
+
+@section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <script>
+
+        var socket = io(':6001');
+        socket.on('chat:message', function (data) {
+            console.log(data);
+        });
+    </script>
+@endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\TestEvent;
 use App\Message;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,11 @@ class AmchartsController extends Controller
     }
 
     public function postMessage(Request $request){
-        Message::create($request->all());
+        $message = Message::create($request->all());
+//        dd($message);
+        event(
+            new TestEvent($message)
+        );
         return redirect()->back();
 
     }

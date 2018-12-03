@@ -9,20 +9,21 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use \App\Message;
 
 class TestEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $time;
+    public $message;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Message $message)
     {
-//        $this->time = microtime();
+        $this->message = $message;
     }
 
     /**
@@ -32,19 +33,19 @@ class TestEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return ['service'];
+        return ['chat'];
     }
 
-    public function broadcastWith()
-    {
-        return [
-            'time' => microtime(),
-            'version' => 0.1
-        ];
-    }
+//    public function broadcastWith()
+//    {
+//        return [
+//            'time' => microtime(),
+//            'version' => 0.1
+//        ];
+//    }
 
     public function broadcastAs()
     {
-        return 'microtime';
+        return 'message';
     }
 }

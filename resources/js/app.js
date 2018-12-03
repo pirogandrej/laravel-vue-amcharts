@@ -1,4 +1,6 @@
 require('./bootstrap');
+// import ioclient from 'socket.io-client';
+window.ioclient = require('socket.io-client');
 
 window.Vue = require('vue');
 window.VueRouter = require('vue-router').default;
