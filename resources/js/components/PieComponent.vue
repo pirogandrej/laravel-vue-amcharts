@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    var socket = io(':6001');
+//    var socket = io(':6001');
 //    import AmPie from 'amcharts3/amcharts/pie';
     export default {
 //        props: ['title'],

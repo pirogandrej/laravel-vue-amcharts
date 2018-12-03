@@ -6,8 +6,6 @@ window.VueRouter = require('vue-router').default;
 Vue.use(VueRouter);
 
 Vue.component('menu-component', require('./components/MenuComponent.vue'));
-// Vue.component('chartrandom-component', require('./components/ChartRandomComponent.vue'));
-
 
 const LineComponent = require('./components/LineComponent.vue');
 const MapComponent = require('./components/MapComponent.vue');
@@ -59,7 +57,7 @@ const router = new VueRouter({
     routes
 });
 
-const app = new Vue({
+const appchart = new Vue({
     router
 }).$mount('#app');
 
